@@ -14,26 +14,54 @@ public class DbHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String SQL_CREATE="CREATE TABLE CHURCH (ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,TYPE TEXT,PASSWORD TEXT)";
-        db.execSQL(SQL_CREATE);
-        insertEntry("Jhon","student", "123",db);
-        insertEntry("Adam","teacher", "123",db);
-        insertEntry("Sarah","admin", "123",db);
+        String SQL_CREATE_USERS="CREATE TABLE CUSERS (ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,TYPE TEXT,PASSWORD TEXT)";
+        String SQL_CREATE_CLASSES="CREATE TABLE CLASSES (ID INTEGER PRIMARY KEY AUTOINCREMENT,CNAME TEXT)";
+        String SQL_CREATE_SUBJECTS="CREATE TABLE SUBJECTS (ID INTEGER PRIMARY KEY AUTOINCREMENT,SNAME TEXT, SCODE TEXT)";
+
+        db.execSQL(SQL_CREATE_USERS);
+        db.execSQL(SQL_CREATE_CLASSES);
+        db.execSQL(SQL_CREATE_SUBJECTS);
+
+        insertUSERS("Jhon","student", "123",db);
+        insertUSERS("Adam","teacher", "123",db);
+        insertUSERS("Sarah","admin", "123",db);
+
+        insertCLASSES("class 1",db);
+        insertCLASSES("class 2",db);
+        insertCLASSES("class 3",db);
+
+        insertSUBJECTS("English","E-101",db);
+        insertSUBJECTS("History","E-102",db);
+        insertSUBJECTS("Economics","E-103",db);
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-        String SQL_DELETE="DROP TABLE IF EXISTS CHURCH";
+        String SQL_DELETE="DROP TABLE IF EXISTS CUSERS";
         db.execSQL(SQL_DELETE);
         onCreate(db);
     }
 
-    public void insertEntry(String Name, String Type, String Password, SQLiteDatabase db){
+    public void insertCLASSES(String CName, SQLiteDatabase db){
+        ContentValues values= new ContentValues();
+        values.put("CNAME", CName);
+
+        db.insert(" CLASSES",null,values);
+    }
+
+    public void insertSUBJECTS(String SName, String SCode, SQLiteDatabase db){
+        ContentValues values= new ContentValues();
+        values.put("SNAME", SName);
+        values.put("SCODE",SCode);
+        db.insert(" SUBJECTS",null,values);
+    }
+
+    public void insertUSERS(String Name, String Type, String Password, SQLiteDatabase db){
         ContentValues values= new ContentValues();
         values.put("NAME", Name);
         values.put("TYPE",Type);
         values.put("PASSWORD",Password);
-        db.insert(" CHURCH",null,values);
+        db.insert(" CUSERS",null,values);
     }
 }

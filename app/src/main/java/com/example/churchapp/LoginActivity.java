@@ -46,17 +46,17 @@ public class LoginActivity extends AppCompatActivity {
 
                     intent= new Intent(LoginActivity.this,StudentMain.class);
                     startActivity(intent);
-                    Toast.makeText(getApplicationContext(),"Welcome to "+loginName+ " Portal",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Welcome to "+type+ " Portal",Toast.LENGTH_SHORT).show();
                 }
                 if(type.equals("teacher")){
                     intent= new Intent(LoginActivity.this,TeacherMain.class);
                     startActivity(intent);
-                    Toast.makeText(getApplicationContext(),"Welcome to "+loginName+ " Portal",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Welcome to "+type+ " Portal",Toast.LENGTH_SHORT).show();
                 }
                 if(type.equals("admin")){
                     intent= new Intent(LoginActivity.this,AdminMain.class);
                     startActivity(intent);
-                    Toast.makeText(getApplicationContext(),"Welcome to "+loginName+ " Portal",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Welcome to "+type+ " Portal",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
         String name= eNaame.getText().toString();
         String pass = ePass.getText().toString();
         try{
-            Cursor cursor = db.rawQuery("SELECT NAME ,TYPE, PASSWORD FROM CHURCH WHERE NAME='"+name+"' AND PASSWORD='"+pass+"'", null);
+            Cursor cursor = db.rawQuery("SELECT NAME ,TYPE, PASSWORD FROM CUSERS WHERE NAME='"+name+"' AND PASSWORD='"+pass+"'", null);
 
             if(cursor!=null){
                 cursor.moveToFirst();
@@ -77,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
                     String tpass=cursor.getString(2);
                     buffer.append("name = "+name+" pass = "+pass +"type = "+type);
                 }while(cursor.moveToNext());
-                Toast.makeText(getApplicationContext(),buffer,Toast.LENGTH_SHORT).show();
+               // Toast.makeText(getApplicationContext(),buffer,Toast.LENGTH_SHORT).show();
             }
             else{
                 Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
@@ -85,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
         catch (Exception e){
-            Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"Enter Valid Credentials",Toast.LENGTH_SHORT).show();
 
         }
 

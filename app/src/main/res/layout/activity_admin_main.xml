@@ -13,5 +13,52 @@
         android:text="Welcome into Admin Portal"
         android:layout_marginTop="10dp"
         android:layout_gravity="center"/>
+    <Button
+        android:id="@+id/seeTecher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SEE ALL TEACHER "
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        />
+    <Button
+        android:id="@+id/seeStudent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SEE ALL Students "
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        />
+    <Button
+        android:id="@+id/seeClasses"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SEE ALL Classes "
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        />
+    <Button
+        android:id="@+id/seeSubject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SEE ALL Subjects "
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        />
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Log out "
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        android:textColor="#ffffff"
+        android:background="@color/colorAccent"
+        />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

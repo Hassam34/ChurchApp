@@ -13,5 +13,43 @@
         android:text="Welcome into Teacher Portal"
         android:layout_marginTop="10dp"
         android:layout_gravity="center"/>
+    <Button
+        android:id="@+id/seeSubject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SEE Your Subjects "
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        />
+    <Button
+        android:id="@+id/seeClasses"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SEE Your Classes "
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        />
+    <Button
+        android:id="@+id/seeStudents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SEE Your Students "
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        />
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Log out "
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        android:textColor="#ffffff"
+        android:background="@color/colorAccent"
+        />
 
 </LinearLayout>

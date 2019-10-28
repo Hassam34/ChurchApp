@@ -23,7 +23,14 @@ public class DbHandler extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_SUBJECTS);
 
         insertUSERS("Jhon","student", "123",db);
+        insertUSERS("Yadav","student", "123",db);
+        insertUSERS("Virat","student", "123",db);
+
+
         insertUSERS("Adam","teacher", "123",db);
+        insertUSERS("Arjun","teacher", "123",db);
+        insertUSERS("Anushka","teacher", "123",db);
+
         insertUSERS("Sarah","admin", "123",db);
 
         insertCLASSES("class 1",db);

@@ -34,7 +34,7 @@ public class AdminSeeSubjects extends AppCompatActivity {
                     String tname = cursor.getString(0);
                     buffer.append("name = " + tname);
                 } while (cursor.moveToNext());
-                Toast.makeText(getApplicationContext(),buffer,Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(),buffer,Toast.LENGTH_SHORT).show();
             }
             else{
                 Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();

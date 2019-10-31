@@ -22,20 +22,20 @@ public class DbHandler extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_CLASSES);
         db.execSQL(SQL_CREATE_SUBJECTS);
 
-        insertUSERS("Jhon","student", "123",db);
+        insertUSERS("Mukesh","student", "123",db);
         insertUSERS("Yadav","student", "123",db);
         insertUSERS("Virat","student", "123",db);
 
 
-        insertUSERS("Adam","teacher", "123",db);
-        insertUSERS("Arjun","teacher", "123",db);
+        insertUSERS("Jaskiran","teacher", "123",db);
+        insertUSERS("Bhargavi","teacher", "123",db);
         insertUSERS("Anushka","teacher", "123",db);
 
-        insertUSERS("Sarah","admin", "123",db);
+        insertUSERS("Bhavdeep","admin", "123",db); //Try to Login with This
 
-        insertCLASSES("class 1",db);
-        insertCLASSES("class 2",db);
-        insertCLASSES("class 3",db);
+        insertCLASSES("Class 1",db);
+        insertCLASSES("Class 2",db);
+        insertCLASSES("Class 3",db);
 
         insertSUBJECTS("English","E-101",db);
         insertSUBJECTS("History","E-102",db);

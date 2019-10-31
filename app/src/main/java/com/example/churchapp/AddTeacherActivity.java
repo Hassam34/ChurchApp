@@ -44,7 +44,7 @@ public class AddTeacherActivity extends AppCompatActivity {
                     String pass=password.getText().toString();
                    mydb.insertUSERS(user,"teacher",pass,db);
                    finish();
-                    Toast.makeText(getApplicationContext(),"User Added",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Teacher Added",Toast.LENGTH_SHORT).show();
 
                 }
                 catch(Exception e){

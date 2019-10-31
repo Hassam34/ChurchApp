@@ -6,10 +6,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".AdminSeeClasses">
+
     <Button
         android:id="@+id/addClasses"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="52dp"
         android:background="@color/colorAccent"
         android:text="Add Classes"
@@ -19,7 +21,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.34" />
+        app:layout_constraintVertical_bias="0.333" />
 
     <Button
         android:id="@+id/deleteClasses"
@@ -48,7 +50,7 @@
 
     <LinearLayout
 
-        android:id="@+id/linearLayout1"
+        android:id="@+id/linearLayoutclass"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="2dp"

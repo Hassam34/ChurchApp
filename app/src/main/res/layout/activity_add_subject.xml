@@ -1,43 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".DeleteTeacherActivity">
+    tools:context=".AddSubjectActivity">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="Delete Teacher"/>
+        android:text="Add new Subject here" />
+
     <EditText
+        android:id="@+id/usernameSubject"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="30dp"
-        android:id="@+id/dUsername"
         android:layout_marginRight="10dp"
-        android:hint="username"/>
+        android:hint="Subject name" />
+
     <EditText
+        android:id="@+id/passwordSubject"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-    android:id="@+id/dPassword"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
         android:layout_marginRight="10dp"
-        android:inputType="textPassword"
-        android:hint="password"/>
+        android:hint="Subject ID"
+         />
 
     <Button
-        android:id="@+id/dteacher"
+        android:id="@+id/SubjectAdd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:background="@color/colorAccent"
-        android:text="Delete Teacher"
+        android:text="Add Subject"
         android:textColor="#ffff" />
 
-</LinearLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

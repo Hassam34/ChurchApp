@@ -6,12 +6,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".AdminSeeSubjects">
+
     <Button
         android:id="@+id/addSubject"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="52dp"
         android:background="@color/colorAccent"
+
         android:text="Add Subject"
         android:textColor="#ffff"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout1"
@@ -48,7 +51,7 @@
 
     <LinearLayout
 
-        android:id="@+id/linearLayout1"
+        android:id="@+id/linearLayoutsubject"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="2dp"

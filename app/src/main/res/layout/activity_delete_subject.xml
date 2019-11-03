@@ -13,22 +13,13 @@
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="Delete Subject"/>
-    <EditText
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="30dp"
-        android:id="@+id/dUsernameSubject"
-        android:layout_marginRight="10dp"
-        android:hint="Subject Name"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:layout_marginTop="20dp"
-        android:id="@+id/dPasswordSubject"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:hint="Subject ID"/>
+        android:layout_marginBottom="20dp"
+        android:id="@+id/lineardeleteSubject"></LinearLayout>
 
     <Button
         android:id="@+id/dsubject"

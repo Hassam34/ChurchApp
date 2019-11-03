@@ -13,23 +13,14 @@
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="Delete Student"/>
-    <EditText
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="30dp"
-        android:id="@+id/dUsernameStudent"
-        android:layout_marginRight="10dp"
-        android:hint="username"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:layout_marginTop="20dp"
-        android:id="@+id/dPasswordStudent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:inputType="textPassword"
-        android:hint="password"/>
+        android:layout_marginBottom="20dp"
+        android:id="@+id/lineardeleteStudent"></LinearLayout>
 
     <Button
         android:id="@+id/dstudent"

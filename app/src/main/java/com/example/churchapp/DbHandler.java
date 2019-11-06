@@ -17,10 +17,15 @@ public class DbHandler extends SQLiteOpenHelper {
         String SQL_CREATE_USERS="CREATE TABLE CUSERS (ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,TYPE TEXT,PASSWORD TEXT)";
         String SQL_CREATE_CLASSES="CREATE TABLE CLASSES (ID INTEGER PRIMARY KEY AUTOINCREMENT,CNAME TEXT)";
         String SQL_CREATE_SUBJECTS="CREATE TABLE SUBJECTS (ID INTEGER PRIMARY KEY AUTOINCREMENT,SNAME TEXT, SCODE TEXT)";
+        String SQL_TEACHER_CLASSES="CREATE TABLE TEACHERCLASS (ID INTEGER PRIMARY KEY AUTOINCREMENT,TNAME TEXT, CNAME TEXT)";
+
 
         db.execSQL(SQL_CREATE_USERS);
         db.execSQL(SQL_CREATE_CLASSES);
         db.execSQL(SQL_CREATE_SUBJECTS);
+        db.execSQL(SQL_TEACHER_CLASSES);
+
+//        insertTeacherClass("Jaskiran","Class 2",db);
 
         insertUSERS("Mukesh","student", "123",db);
         insertUSERS("Yadav","student", "123",db);
@@ -48,6 +53,12 @@ public class DbHandler extends SQLiteOpenHelper {
         String SQL_DELETE="DROP TABLE IF EXISTS CUSERS";
         db.execSQL(SQL_DELETE);
         onCreate(db);
+    }
+    public void insertTeacherClass(String Tname,String CName, SQLiteDatabase db){
+        ContentValues values= new ContentValues();
+        values.put("TNAME", Tname);
+        values.put("CNAME", CName);
+        db.insert(" TEACHERCLASS",null,values);
     }
 
     public void insertCLASSES(String CName, SQLiteDatabase db){

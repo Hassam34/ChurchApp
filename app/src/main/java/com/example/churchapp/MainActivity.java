@@ -3,6 +3,7 @@ package com.example.churchapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,7 +24,32 @@ public class MainActivity extends AppCompatActivity {
         adminBtn=(Button) findViewById(R.id.adminBtn);
         studentBtn=(Button) findViewById(R.id.studentBtn);
         teacherBtn=(Button) findViewById(R.id.teacherBtn);
+        SharedPreferences prefs = getSharedPreferences("MyPrefsFile", MODE_PRIVATE);
+        String type = prefs.getString("name", "No name defined");//"No name defined" is the default value.
+//        int idName = prefs.getInt("idName", 0);
+//        Toast.makeText(getApplicationContext(),"Shared Preference "+type+ "  value",Toast.LENGTH_SHORT).show();
+        if(type.equals("student")){
 
+
+            intent= new Intent(MainActivity.this,StudentMain.class);
+            startActivity(intent);
+            finish();
+            Toast.makeText(getApplicationContext(),"Welcome to "+type+ " Portal",Toast.LENGTH_SHORT).show();
+        }
+        if(type.equals("teacher")){
+
+            intent= new Intent(MainActivity.this,TeacherMain.class);
+            startActivity(intent);
+            finish();
+            Toast.makeText(getApplicationContext(),"Welcome to "+type+ " Portal",Toast.LENGTH_SHORT).show();
+        }
+        if(type.equals("admin")){
+
+            intent= new Intent(MainActivity.this,AdminMain.class);
+            startActivity(intent);
+            finish();
+            Toast.makeText(getApplicationContext(),"Welcome to "+type+ " Portal",Toast.LENGTH_SHORT).show();
+        }
         teacherBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -32,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("Login_Type_Name", loginName);
 
                 startActivity(intent);
+                finish();
+
             }
         });
 
@@ -42,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 intent= new Intent(MainActivity.this,LoginActivity.class);
                 intent.putExtra("Login_Type_Name", loginName);
                 startActivity(intent);
+                finish();
             }
         });
         adminBtn.setOnClickListener(new View.OnClickListener() {
@@ -51,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
                 intent= new Intent(MainActivity.this,LoginActivity.class);
                 intent.putExtra("Login_Type_Name", loginName);
                 startActivity(intent);
+                finish();
             }
         });
 

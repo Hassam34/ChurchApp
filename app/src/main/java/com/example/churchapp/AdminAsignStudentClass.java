@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,37 +18,34 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminAssignTeacherClasss extends AppCompatActivity {
+public class AdminAsignStudentClass extends AppCompatActivity {
     Spinner spinner;
-    TextView showname, showClass;
+    TextView showname, showClass,showClassesStudent;
     String Querry;
     DbHandler mydb;
     SQLiteDatabase db ;
     Intent intent;
-    Button assignButton;
-    String teacherName;
+    Button assignButton , unassignButton;
+    String StudentName;
     List<String> arraySpinner;
     List<String> arrayClasses;
-//    List<String> arrayTeacherClasses;
-
-
     String selecClass;
-
+    LinearLayout linearLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_assign_teacher_classs);
-
-        teacherName = getIntent().getStringExtra("Teacher_Name");
-        showname=(TextView) findViewById(R.id.showTeacherName);
-        showClass=(TextView) findViewById(R.id.showTeacherClass);
-        String showNameString="Assign Class to "+teacherName;
+        setContentView(R.layout.activity_admin_asign_student_class);
+        StudentName = getIntent().getStringExtra("Student_Name");
+        showname=(TextView) findViewById(R.id.showStudentName);
+        showClass=(TextView) findViewById(R.id.showStudentClass);
+        String showNameString="Assign Class to "+StudentName;
         showname.setText(showNameString);
+        linearLayout= (LinearLayout) findViewById(R.id.linearAddClass);
 
         mydb = new DbHandler(this);
         db = mydb.getReadableDatabase();
 
-        spinner=(Spinner) findViewById(R.id.spinnerid);
+        spinner=(Spinner) findViewById(R.id.spinneridStudent);
         arraySpinner = new ArrayList<String>();
         arrayClasses = new ArrayList<String>();
 
@@ -55,7 +53,7 @@ public class AdminAssignTeacherClasss extends AppCompatActivity {
         fetchClasses();
 //        fetchAvailableClasses();
 
-        arraySpinner.add("No Class");
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, arraySpinner);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -71,14 +69,44 @@ public class AdminAssignTeacherClasss extends AppCompatActivity {
             }
         });
 
-        assignButton=(Button) findViewById(R.id.assignclass);
+        assignButton=(Button) findViewById(R.id.assignclassStudent);
         assignButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
-                    mydb.updateTeacherClass(teacherName, selecClass, db);
-                    String showNameString="Teacher is currently assign to :"+selecClass;
-                    showClass.setText(showNameString);
+                   int check= checkClassStudent();
+                   if(check!=1){
+                       mydb.insertStudentClass(StudentName, selecClass, db);
+//                       String showNameString="Student is currently assign to :"+selecClass;
+//                       showClass.setText(showNameString);
+                       showTeacherClass();
+                   }
+                   else{
+                       Toast.makeText(getApplicationContext(),"Already enroll in this class",Toast.LENGTH_SHORT).show();
+                   }
+
+                }
+                catch (Exception e){
+                    Toast.makeText(getApplicationContext(),"Enter Valid Credentials",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        unassignButton =(Button) findViewById(R.id.unassignclassStudent);
+        unassignButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    int check= checkClassStudent();
+                    if(check==1){
+                        db.execSQL(" DELETE FROM STUDENTCLASS WHERE SNAME='"+StudentName+"' AND CNAME ='"+selecClass+"'");
+                        Toast.makeText(getApplicationContext(),selecClass +" Un assigned Successfuly",Toast.LENGTH_SHORT).show();
+                        showTeacherClass();
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(),"Class is already not assign",Toast.LENGTH_SHORT).show();
+                    }
+
                 }
                 catch (Exception e){
                     Toast.makeText(getApplicationContext(),"Enter Valid Credentials",Toast.LENGTH_SHORT).show();
@@ -86,19 +114,54 @@ public class AdminAssignTeacherClasss extends AppCompatActivity {
             }
         });
     }
+    private int checkClassStudent(){
+        try {
+            Cursor cursor = db.rawQuery("SELECT SNAME ,CNAME FROM StudentCLASS WHERE SNAME='"+StudentName+"' AND CNAME='"+selecClass+"'", null);
+            if(cursor!=null) {
+                cursor.moveToFirst();
+                do {
+                    String cname= cursor.getString(1);
+                    return 1;
+                } while (cursor.moveToNext());
+            }
+            else{
+
+                Toast.makeText(getApplicationContext(),"No Student avialable in database",Toast.LENGTH_SHORT).show();
+                return 0;
+            }
+        }
+        catch (Exception e){
+//            Toast.makeText(getApplicationContext(),"Added",Toast.LENGTH_SHORT).show();
+            return 0;
+        }
+
+//        return 0;
+    }
+    private void addStudentClass (String name){
+
+        showClassesStudent = new TextView(this);
+        showClassesStudent.setText(name);
+//        Dbutton.setOnClickListener(getOnClickDoSomething(Dbutton));
+        linearLayout.addView(showClassesStudent);
+    }
     private void showTeacherClass(){
         try{
-            Cursor cursor = db.rawQuery("SELECT TNAME ,CNAME FROM TEACHERCLASS WHERE TNAME='"+teacherName+"'", null);
+            if(((LinearLayout) linearLayout).getChildCount() > 0)
+                ((LinearLayout) linearLayout).removeAllViews();
+            Cursor cursor = db.rawQuery("SELECT SNAME ,CNAME FROM StudentCLASS WHERE SNAME='"+StudentName+"'", null);
             if(cursor!=null) {
                 cursor.moveToFirst();
                 do {
                     String cname=cursor.getString(1);
-                    String showNameString="Teacher is currently assign to :"+cname;
+                    String showNameString="Student is currently assign to :";
                     showClass.setText(showNameString);
+                    addStudentClass(cname);
+//                    Toast.makeText(getApplicationContext(),cname,Toast.LENGTH_SHORT).show();
+
                 } while (cursor.moveToNext());
             }
             else{
-                Toast.makeText(getApplicationContext(),"No Teacher avialable in database",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"No Student avialable in database",Toast.LENGTH_SHORT).show();
             }
         }
         catch(Exception e){

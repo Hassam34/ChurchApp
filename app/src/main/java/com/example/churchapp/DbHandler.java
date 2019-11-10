@@ -18,13 +18,14 @@ public class DbHandler extends SQLiteOpenHelper {
         String SQL_CREATE_CLASSES="CREATE TABLE CLASSES (ID INTEGER PRIMARY KEY AUTOINCREMENT,CNAME TEXT)";
         String SQL_CREATE_SUBJECTS="CREATE TABLE SUBJECTS (ID INTEGER PRIMARY KEY AUTOINCREMENT,SNAME TEXT, SCODE TEXT)";
         String SQL_TEACHER_CLASSES="CREATE TABLE TEACHERCLASS (ID INTEGER PRIMARY KEY AUTOINCREMENT,TNAME TEXT, CNAME TEXT)";
+        String SQL_STUDENT_CLASSES="CREATE TABLE STUDENTCLASS (ID INTEGER PRIMARY KEY AUTOINCREMENT,SNAME TEXT, CNAME TEXT)";
 
 
         db.execSQL(SQL_CREATE_USERS);
         db.execSQL(SQL_CREATE_CLASSES);
         db.execSQL(SQL_CREATE_SUBJECTS);
         db.execSQL(SQL_TEACHER_CLASSES);
-
+        db.execSQL(SQL_STUDENT_CLASSES);
 //        insertTeacherClass("Jaskiran","Class 2",db);
 
         insertUSERS("Mukesh","student", "123",db);
@@ -36,11 +37,16 @@ public class DbHandler extends SQLiteOpenHelper {
         insertUSERS("Bhargavi","teacher", "123",db);
         insertUSERS("Anushka","teacher", "123",db);
 
-        insertUSERS("Bhavdeep","admin", "123",db); //Try to Login with This
+        insertTeacherClass("Jaskiran","No Class",db);
+        insertTeacherClass("Bhargavi","No Class",db);
+        insertTeacherClass("Anushka","No Class",db);
+
+        insertUSERS("Bhavdeep","admin", "123",db);
 
         insertCLASSES("Class 1",db);
         insertCLASSES("Class 2",db);
         insertCLASSES("Class 3",db);
+//        insertCLASSES("No Class",db);
 
         insertSUBJECTS("English","E-101",db);
         insertSUBJECTS("History","E-102",db);
@@ -54,11 +60,23 @@ public class DbHandler extends SQLiteOpenHelper {
         db.execSQL(SQL_DELETE);
         onCreate(db);
     }
+    public void insertStudentClass(String Sname,String CName, SQLiteDatabase db){
+        ContentValues values= new ContentValues();
+        values.put("SNAME", Sname);
+        values.put("CNAME", CName);
+        db.insert(" STUDENTCLASS",null,values);
+    }
     public void insertTeacherClass(String Tname,String CName, SQLiteDatabase db){
         ContentValues values= new ContentValues();
         values.put("TNAME", Tname);
         values.put("CNAME", CName);
         db.insert(" TEACHERCLASS",null,values);
+    }
+
+    public void updateTeacherClass(String Tname,String CName, SQLiteDatabase db){
+        ContentValues values= new ContentValues();
+        values.put("CNAME", CName);
+        db.update(" TEACHERCLASS",values, "TNAME='"+Tname+"'",null);
     }
 
     public void insertCLASSES(String CName, SQLiteDatabase db){

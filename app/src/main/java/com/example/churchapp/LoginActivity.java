@@ -3,6 +3,7 @@ package com.example.churchapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     StringBuffer buffer;
     EditText eNaame,ePass;
     String type="";
+public static final String MY_PREFS_NAME = "MyPrefsFile";
 
 
 
@@ -43,19 +45,34 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 varifyUser();
                 if(type.equals("student")){
+                    SharedPreferences.Editor editor = getSharedPreferences("MyPrefsFile", MODE_PRIVATE).edit();
+                    editor.putString("name", type);
+//                    editor.putInt("idName", 12);
+                    editor.apply();
 
                     intent= new Intent(LoginActivity.this,StudentMain.class);
                     startActivity(intent);
+                    finish();
                     Toast.makeText(getApplicationContext(),"Welcome to "+type+ " Portal",Toast.LENGTH_SHORT).show();
                 }
                 if(type.equals("teacher")){
+                    SharedPreferences.Editor editor = getSharedPreferences("MyPrefsFile", MODE_PRIVATE).edit();
+                    editor.putString("name", type);
+//                    editor.putInt("idName", 12);
+                    editor.apply();
                     intent= new Intent(LoginActivity.this,TeacherMain.class);
                     startActivity(intent);
+                    finish();
                     Toast.makeText(getApplicationContext(),"Welcome to "+type+ " Portal",Toast.LENGTH_SHORT).show();
                 }
                 if(type.equals("admin")){
+                    SharedPreferences.Editor editor = getSharedPreferences("MyPrefsFile", MODE_PRIVATE).edit();
+                    editor.putString("name", type);
+//                    editor.putInt("idName", 12);
+                    editor.apply();
                     intent= new Intent(LoginActivity.this,AdminMain.class);
                     startActivity(intent);
+                    finish();
                     Toast.makeText(getApplicationContext(),"Welcome to "+type+ " Portal",Toast.LENGTH_SHORT).show();
                 }
             }

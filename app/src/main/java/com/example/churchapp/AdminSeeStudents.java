@@ -61,8 +61,18 @@ public class AdminSeeStudents extends AppCompatActivity {
 
         Dbutton = new Button(this);
         Dbutton.setText(name);
+        Dbutton.setOnClickListener(getOnClickDoSomething(Dbutton));
         linearLayout.addView(Dbutton);
-
+    }
+    View.OnClickListener getOnClickDoSomething(final Button button) {
+        return new View.OnClickListener() {
+            public void onClick(View v) {
+                intent= new Intent(AdminSeeStudents.this,AdminAsignStudentClass.class);
+                intent.putExtra("Student_Name", button.getText().toString());
+                startActivity(intent);
+//                Toast.makeText(getApplicationContext(),button.getText().toString(),Toast.LENGTH_SHORT).show();
+            }
+        };
     }
     private void fetchFromDataBAse(){
 

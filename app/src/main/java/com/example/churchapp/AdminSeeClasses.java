@@ -67,12 +67,15 @@ public class AdminSeeClasses extends AppCompatActivity {
     private void fetchFromDataBAse(){
 
         try{
-            Cursor cursor = db.rawQuery("SELECT CNAME FROM CLASSES", null);
+            Cursor cursor = db.rawQuery("SELECT CNAME, TIME FROM CLASSES", null);
             if(cursor!=null) {
                 cursor.moveToFirst();
                 do {
                     String tname = cursor.getString(0);
+                    String time = cursor.getString(1);
+
                     addClass(tname);
+                    Toast.makeText(getApplicationContext(),time,Toast.LENGTH_SHORT).show();
                     buffer.append("name = " + tname);
                 } while (cursor.moveToNext());
 //                Toast.makeText(getApplicationContext(),buffer,Toast.LENGTH_SHORT).show();

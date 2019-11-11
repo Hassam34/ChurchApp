@@ -22,7 +22,38 @@
         android:layout_marginTop="30dp"
         android:layout_marginRight="10dp"
         android:hint="Class name" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:text="Add Time of Class"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Spinner
+            android:layout_width="50pt"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_height="50dp"
+            android:id="@+id/spinStart"></Spinner>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:textSize="40dp"
+            android:text=" to "/>
+        <Spinner
+            android:layout_width="50pt"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:id="@+id/spinnerEnd"
+            android:layout_height="50dp"></Spinner>
 
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/ClassAdd"
@@ -32,4 +63,5 @@
         android:background="@color/colorAccent"
         android:text="Add Class"
         android:textColor="#ffff" />
+
 </androidx.appcompat.widget.LinearLayoutCompat>

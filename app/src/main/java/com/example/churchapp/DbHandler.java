@@ -15,7 +15,7 @@ public class DbHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String SQL_CREATE_USERS="CREATE TABLE CUSERS (ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,TYPE TEXT,PASSWORD TEXT)";
-        String SQL_CREATE_CLASSES="CREATE TABLE CLASSES (ID INTEGER PRIMARY KEY AUTOINCREMENT,CNAME TEXT)";
+        String SQL_CREATE_CLASSES="CREATE TABLE CLASSES (ID INTEGER PRIMARY KEY AUTOINCREMENT,CNAME TEXT, Time Text)";
         String SQL_CREATE_SUBJECTS="CREATE TABLE SUBJECTS (ID INTEGER PRIMARY KEY AUTOINCREMENT,SNAME TEXT, SCODE TEXT)";
         String SQL_TEACHER_CLASSES="CREATE TABLE TEACHERCLASS (ID INTEGER PRIMARY KEY AUTOINCREMENT,TNAME TEXT, CNAME TEXT)";
         String SQL_STUDENT_CLASSES="CREATE TABLE STUDENTCLASS (ID INTEGER PRIMARY KEY AUTOINCREMENT,SNAME TEXT, CNAME TEXT)";
@@ -26,7 +26,6 @@ public class DbHandler extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_SUBJECTS);
         db.execSQL(SQL_TEACHER_CLASSES);
         db.execSQL(SQL_STUDENT_CLASSES);
-//        insertTeacherClass("Jaskiran","Class 2",db);
 
         insertUSERS("Mukesh","student", "123",db);
         insertUSERS("Yadav","student", "123",db);
@@ -43,10 +42,9 @@ public class DbHandler extends SQLiteOpenHelper {
 
         insertUSERS("Bhavdeep","admin", "123",db);
 
-        insertCLASSES("Class 1",db);
-        insertCLASSES("Class 2",db);
-        insertCLASSES("Class 3",db);
-//        insertCLASSES("No Class",db);
+        insertCLASSES("Class 1","9 to 10",db);
+        insertCLASSES("Class 2","10 to 11",db);
+        insertCLASSES("Class 3","11 to 12",db);
 
         insertSUBJECTS("English","E-101",db);
         insertSUBJECTS("History","E-102",db);
@@ -79,9 +77,10 @@ public class DbHandler extends SQLiteOpenHelper {
         db.update(" TEACHERCLASS",values, "TNAME='"+Tname+"'",null);
     }
 
-    public void insertCLASSES(String CName, SQLiteDatabase db){
+    public void insertCLASSES(String CName,String Time, SQLiteDatabase db){
         ContentValues values= new ContentValues();
         values.put("CNAME", CName);
+        values.put("TIME", Time);
 
         db.insert(" CLASSES",null,values);
     }

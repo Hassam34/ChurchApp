@@ -22,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     StringBuffer buffer;
     EditText eNaame,ePass;
     String type="";
+    String tname;
 public static final String MY_PREFS_NAME = "MyPrefsFile";
 
 
@@ -46,7 +47,8 @@ public static final String MY_PREFS_NAME = "MyPrefsFile";
                 varifyUser();
                 if(type.equals("student")){
                     SharedPreferences.Editor editor = getSharedPreferences("MyPrefsFile", MODE_PRIVATE).edit();
-                    editor.putString("name", type);
+                    editor.putString("type", type);
+                    editor.putString("name", tname);
 //                    editor.putInt("idName", 12);
                     editor.apply();
 
@@ -57,7 +59,8 @@ public static final String MY_PREFS_NAME = "MyPrefsFile";
                 }
                 if(type.equals("teacher")){
                     SharedPreferences.Editor editor = getSharedPreferences("MyPrefsFile", MODE_PRIVATE).edit();
-                    editor.putString("name", type);
+                    editor.putString("type", type);
+                    editor.putString("name", tname);
 //                    editor.putInt("idName", 12);
                     editor.apply();
                     intent= new Intent(LoginActivity.this,TeacherMain.class);
@@ -67,7 +70,8 @@ public static final String MY_PREFS_NAME = "MyPrefsFile";
                 }
                 if(type.equals("admin")){
                     SharedPreferences.Editor editor = getSharedPreferences("MyPrefsFile", MODE_PRIVATE).edit();
-                    editor.putString("name", type);
+                    editor.putString("type", type);
+                    editor.putString("name", tname);
 //                    editor.putInt("idName", 12);
                     editor.apply();
                     intent= new Intent(LoginActivity.this,AdminMain.class);
@@ -88,7 +92,7 @@ public static final String MY_PREFS_NAME = "MyPrefsFile";
             if(cursor!=null){
                 cursor.moveToFirst();
                 do{
-                    String tname=cursor.getString(0);
+                    tname=cursor.getString(0);
 
                     type=cursor.getString(1);
                     String tpass=cursor.getString(2);

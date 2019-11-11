@@ -38,6 +38,7 @@ public class AdminMain extends AppCompatActivity {
             public void onClick(View view) {
                 SharedPreferences.Editor editor = getSharedPreferences("MyPrefsFile", MODE_PRIVATE).edit();
                 editor.putString("name", "No");
+                editor.putString("type", "No");
 //                    editor.putInt("idName", 12);
                 editor.apply();
                 Intent intent = new Intent(AdminMain.this, MainActivity.class);

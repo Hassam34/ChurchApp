@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AdminAsignStudentClass"></activity>
+        <activity android:name=".TeacherMain"></activity>
+        <activity android:name=".AdminAsignStudentClass" />
         <activity android:name=".AdminAssignTeacherClasss" />
         <activity android:name=".DeleteClassActivity" />
         <activity android:name=".AddClassActivity" />
@@ -23,14 +24,12 @@
         <activity android:name=".AdminSeeClasses" />
         <activity android:name=".AdminSeeStudents" />
         <activity android:name=".AdminSeeTeacher" />
-        <activity android:name=".TeacherMain" />
         <activity android:name=".StudentMain" />
         <activity android:name=".AdminMain" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

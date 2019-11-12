@@ -18,13 +18,13 @@ public class TeacherMain extends AppCompatActivity {
         logout=(Button) findViewById(R.id.logoutTeacher);
         SharedPreferences prefs = getSharedPreferences("MyPrefsFile", MODE_PRIVATE);
         String name = prefs.getString("name", "No type defined");
-        Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
         addAttendence=(Button) findViewById(R.id.AddAtendence);
         addAttendence.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(TeacherMain.this, "" +
-                        "hello", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(TeacherMain.this, TeacherSeeClasses.class);
+                startActivity(intent);
             }
         });
         logout.setOnClickListener(new View.OnClickListener() {

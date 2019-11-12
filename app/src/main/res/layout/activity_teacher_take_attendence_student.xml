@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TeacherTakeAttendenceStudent">
+    <TextView
+        android:id="@+id/showAttendenceText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:text="MARK ATTENDENCE"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="10dp"
+            android:textColor="#fff"
+            android:background="@color/colorPrimary"
+            android:text="Present"
+            android:id="@+id/present"
+            />
+        <Button
+            android:id="@+id/absent"
+            android:layout_width="120dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="50dp"
+            android:textColor="#fff"
+            android:background="@color/colorAccent"
+            android:text="Absent"/>
+
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/showComments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:text="Add Comments"/>
+
+    <EditText
+        android:inputType="textMultiLine"
+        android:id="@+id/behaviours"
+        android:lines="8"
+        android:minLines="3"
+        android:maxLines="5"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:scrollbars="vertical"
+        android:hint="Whats his Behaviour in Class"
+    />
+    <Button
+        android:id="@+id/confirm"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:background="@color/colorAccent"
+        android:text="Confirm"/>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

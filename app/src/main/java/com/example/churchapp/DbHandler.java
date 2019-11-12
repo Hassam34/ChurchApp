@@ -19,6 +19,7 @@ public class DbHandler extends SQLiteOpenHelper {
         String SQL_CREATE_SUBJECTS="CREATE TABLE SUBJECTS (ID INTEGER PRIMARY KEY AUTOINCREMENT,SNAME TEXT, SCODE TEXT)";
         String SQL_TEACHER_CLASSES="CREATE TABLE TEACHERCLASS (ID INTEGER PRIMARY KEY AUTOINCREMENT,TNAME TEXT, CNAME TEXT)";
         String SQL_STUDENT_CLASSES="CREATE TABLE STUDENTCLASS (ID INTEGER PRIMARY KEY AUTOINCREMENT,SNAME TEXT, CNAME TEXT)";
+        String ATTENDENCE="CREATE TABLE STUDENTATTENDENCE (ID INTEGER PRIMARY KEY AUTOINCREMENT, SNAME TEXT, TNAME TEXT, CNAME TEXT,DATE TEXT,STATUS TEXT,COMMENTS TEXT)";
 
 
         db.execSQL(SQL_CREATE_USERS);
@@ -26,6 +27,8 @@ public class DbHandler extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_SUBJECTS);
         db.execSQL(SQL_TEACHER_CLASSES);
         db.execSQL(SQL_STUDENT_CLASSES);
+        db.execSQL(ATTENDENCE);
+
 
         insertUSERS("Mukesh","student", "123",db);
         insertUSERS("Yadav","student", "123",db);
@@ -57,6 +60,16 @@ public class DbHandler extends SQLiteOpenHelper {
         String SQL_DELETE="DROP TABLE IF EXISTS CUSERS";
         db.execSQL(SQL_DELETE);
         onCreate(db);
+    }
+    public void isertAttendence(String Sname,String Tname, String Cname, String Date,String Status, String Comments, SQLiteDatabase db){
+        ContentValues values= new ContentValues();
+        values.put("SNAME", Sname);
+        values.put("Tname", Tname);
+        values.put("CNAME", Cname);
+        values.put("DATE", Date);
+        values.put("STATUS", Status);
+        values.put("COMMENTS", Comments);
+        db.insert("STUDENTATTENDENCE ",null,values);
     }
     public void insertStudentClass(String Sname,String CName, SQLiteDatabase db){
         ContentValues values= new ContentValues();

@@ -68,6 +68,7 @@
         android:background="@drawable/roundedbutton"
         android:foregroundGravity="bottom"
         android:scaleType="fitXY"
+        android:src="@drawable/plus"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView4"

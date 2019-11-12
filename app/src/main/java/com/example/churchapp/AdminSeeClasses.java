@@ -77,7 +77,7 @@ public class AdminSeeClasses extends AppCompatActivity {
                     String time = cursor.getString(1);
 
                     addClass(tname);
-                    Toast.makeText(getApplicationContext(),time,Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getApplicationContext(),time,Toast.LENGTH_SHORT).show();
                     buffer.append("name = " + tname);
                 } while (cursor.moveToNext());
 //                Toast.makeText(getApplicationContext(),buffer,Toast.LENGTH_SHORT).show();

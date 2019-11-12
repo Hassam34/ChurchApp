@@ -85,7 +85,7 @@ public class TeacherTakeAttendenceStudent extends AppCompatActivity {
     private void checkAttendence(){
         try{
             String Sname="";
-            Cursor cursor = db.rawQuery("SELECT SNAME FROM STUDENTATTENDENCE WHERE SNAME='"+studentName+"' AND DATE='"+formattedDate+"'", null);
+            Cursor cursor = db.rawQuery("SELECT SNAME FROM STUDENTATTENDENCE WHERE SNAME='"+studentName+"' AND DATE='"+formattedDate+"' AND TNAME='"+Teachername+"'", null);
             if(cursor!=null) {
                 cursor.moveToFirst();
                 do {

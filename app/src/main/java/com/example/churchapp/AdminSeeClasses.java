@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -17,7 +18,8 @@ public class AdminSeeClasses extends AppCompatActivity {
     SQLiteDatabase db ;
     StringBuffer buffer;
     Intent intent;
-    Button Dbutton, addClassButton, deleteClassButton;
+    Button Dbutton,  deleteClassButton;
+    ImageButton addClassButton;
     LinearLayout linearLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +29,7 @@ public class AdminSeeClasses extends AppCompatActivity {
         mydb = new DbHandler(this);
         db = mydb.getReadableDatabase();
         linearLayout = (LinearLayout) findViewById(R.id.linearLayoutclass);
-        addClassButton=(Button) findViewById(R.id.addClasses) ;
+        addClassButton=(ImageButton) findViewById(R.id.addClasses) ;
         deleteClassButton=(Button) findViewById(R.id.deleteClasses);
 
         deleteClassButton.setOnClickListener(new View.OnClickListener() {

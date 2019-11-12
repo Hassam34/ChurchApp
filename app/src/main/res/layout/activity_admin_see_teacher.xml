@@ -6,32 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".AdminSeeTeacher">
 
-    <Button
-        android:id="@+id/addTeacher"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
-        android:background="@color/colorAccent"
-        android:text="Add Teacher"
-        android:textColor="#ffff"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.333" />
 
     <Button
         android:id="@+id/deleteTeacher"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="69dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginBottom="12dp"
         android:background="@color/colorAccent"
         android:text="Delete Teacher"
         android:textColor="#ffff"
+        app:layout_constraintBottom_toTopOf="@+id/lable"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/addTeacher"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -39,39 +26,51 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
+        android:layout_marginBottom="16dp"
         android:gravity="center"
         android:text="Available Teachers"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/deleteTeacher" />
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"></ScrollView>
-    <LinearLayout
-        android:id="@+id/linearLayout1"
+
+    <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="2dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="19dp"
+        app:layout_constraintBottom_toTopOf="@+id/addTeacher"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lable">
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/roundedbutton"
 
-            android:layout_gravity="bottom"
-            android:foregroundGravity="bottom"
-            android:scaleType="fitXY"
-            app:srcCompat="@drawable/plus" />
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="21dp"
+            android:orientation="vertical">
 
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <ImageButton
+        android:id="@+id/addTeacher"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/roundedbutton"
+        android:foregroundGravity="bottom"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
+        tools:src="@drawable/plus" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

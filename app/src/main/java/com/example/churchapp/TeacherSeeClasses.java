@@ -59,10 +59,12 @@ public class TeacherSeeClasses extends AppCompatActivity {
     View.OnClickListener getOnClickDoSomething(final Button button) {
         return new View.OnClickListener() {
             public void onClick(View v) {
-                intent= new Intent(TeacherSeeClasses.this,TeacherSeeStudentOfClass.class);
-                intent.putExtra("Class_Name", button.getText().toString());
-                startActivity(intent);
-//                Toast.makeText(getApplicationContext(),button.getText().toString(),Toast.LENGTH_SHORT).show();
+                if(!button.getText().toString().equals("No Class")){
+                    intent= new Intent(TeacherSeeClasses.this,TeacherSeeStudentOfClass.class);
+                    intent.putExtra("Class_Name", button.getText().toString());
+                    startActivity(intent);
+                }
+
             }
         };
     }

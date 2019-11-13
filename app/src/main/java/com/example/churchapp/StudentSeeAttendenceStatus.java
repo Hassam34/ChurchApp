@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +19,7 @@ public class StudentSeeAttendenceStatus extends AppCompatActivity {
     SQLiteDatabase db ;
     StringBuffer buffer;
     Intent intent;
-    Button Dbutton;
+    Button back;
     String name, className,date1;
     TextView status,instructor,Class,date,comments;
     @Override
@@ -31,17 +32,21 @@ public class StudentSeeAttendenceStatus extends AppCompatActivity {
         name = prefs.getString("name", "No type defined");
         mydb = new DbHandler(this);
         db = mydb.getReadableDatabase();
+        back=(Button) findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         status=(TextView) findViewById(R.id.status);
         instructor=(TextView) findViewById(R.id.instructor);
         Class=(TextView) findViewById(R.id.Class);
         date=(TextView) findViewById(R.id.date);
         comments=(TextView) findViewById(R.id.comments);
-
-
         className = getIntent().getStringExtra("Class_Name");
         date1 = getIntent().getStringExtra("date");
-
     }
     @Override
     protected void onStart() {
@@ -56,6 +61,12 @@ public class StudentSeeAttendenceStatus extends AppCompatActivity {
                 cursor.moveToFirst();
                 do {
                     status.setText(cursor.getString(0));
+                    if(status.getText().toString().equals("absent")){
+                        status.setTextColor(Color.RED);
+                    }
+                    else{
+                        status.setTextColor(Color.GREEN);
+                    }
                     instructor.setText(cursor.getString(1));
                     Class.setText(cursor.getString(2));
                     date.setText(cursor.getString(3));

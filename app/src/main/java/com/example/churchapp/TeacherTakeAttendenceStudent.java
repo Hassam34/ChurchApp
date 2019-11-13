@@ -59,14 +59,14 @@ public class TeacherTakeAttendenceStudent extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 present.setVisibility(View.GONE);
-                Status="present";
+                Status="absent";
             }
         });
         present.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 absent.setVisibility(View.GONE);
-                Status="absent";
+                Status="present";
             }
         });
         confirm.setOnClickListener(new View.OnClickListener() {

@@ -10,15 +10,28 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class StudentMain extends AppCompatActivity {
-    Button logout;
+    Button logout, seeAttendence;
+    String name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_main);
+        seeAttendence=(Button) findViewById(R.id.seeAttendence);
         logout=(Button) findViewById(R.id.logoutStudent);
         SharedPreferences prefs = getSharedPreferences("MyPrefsFile", MODE_PRIVATE);
-        String name = prefs.getString("name", "No type defined");
-        Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
+        name = prefs.getString("name", "No type defined");
+//        Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
+
+
+        seeAttendence.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(StudentMain.this,StudentSeeHisClass.class);
+                startActivity(intent);
+            }
+        });
+
+
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

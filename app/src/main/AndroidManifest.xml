@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TeacherTakeAttendenceStudent"></activity>
+        <activity android:name=".StudentSeeAttendenceStatus"></activity>
+        <activity android:name=".StudentSeeDateWiseAttendence" />
+        <activity android:name=".StudentSeeHisClass" />
+        <activity android:name=".TeacherTakeAttendenceStudent" />
         <activity android:name=".TeacherSeeStudentOfClass" />
         <activity android:name=".TeacherSeeClasses" />
         <activity android:name=".TeacherMain" />

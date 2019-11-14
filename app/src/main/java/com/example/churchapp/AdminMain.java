@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class AdminMain extends AppCompatActivity {
@@ -18,7 +19,7 @@ public class AdminMain extends AppCompatActivity {
 //    SQLiteDatabase db ;
 //    StringBuffer buffer;
     Intent intent;
-
+    TextView showN;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +30,11 @@ public class AdminMain extends AppCompatActivity {
         seeSubjects=(Button) findViewById(R.id.seeSubject);
         Logout=(Button) findViewById(R.id.logout);
         seeClasses=(Button) findViewById(R.id.seeClasses);
+        SharedPreferences prefs = getSharedPreferences("MyPrefsFile", MODE_PRIVATE);
+        String name = prefs.getString("name", "No type defined");
+        showN=(TextView) findViewById(R.id.showNA);
+
+        showN.setText("Welcome "+name+" to Admin Portal");
 
 //        buffer= new StringBuffer();
 //        mydb = new DbHandler(this);

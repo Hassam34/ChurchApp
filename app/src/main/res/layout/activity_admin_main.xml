@@ -10,6 +10,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:id="@+id/showNA"
+        android:textSize="20dp"
         android:text="Welcome into Admin Portal"
         android:layout_marginTop="10dp"
         android:layout_gravity="center"/>
@@ -17,7 +19,7 @@
         android:id="@+id/seeTecher"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SEE ALL TEACHER "
+        android:text="SEE ALL TEACHERS "
         android:layout_marginRight="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
@@ -40,15 +42,7 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
         />
-    <Button
-        android:id="@+id/seeSubject"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="SEE ALL Subjects "
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
-        />
+
     <Button
         android:id="@+id/logout"
         android:layout_width="match_parent"

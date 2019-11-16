@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class AdminMain extends AppCompatActivity {
@@ -18,17 +19,31 @@ public class AdminMain extends AppCompatActivity {
 //    SQLiteDatabase db ;
 //    StringBuffer buffer;
     Intent intent;
-
+    TextView showN;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_main);
+//        <Button
+//        android:id="@+id/seeSubject"
+//        android:layout_width="match_parent"
+//        android:layout_height="wrap_content"
+//        android:text="SEE ALL Subjects "
+//        android:layout_marginRight="30dp"
+//        android:layout_marginLeft="30dp"
+//        android:layout_marginTop="30dp"
+//                />
 
         seeStudents=(Button) findViewById(R.id.seeStudent);
         seeTeacher=(Button) findViewById(R.id.seeTecher);
-        seeSubjects=(Button) findViewById(R.id.seeSubject);
+//        seeSubjects=(Button) findViewById(R.id.seeSubject);
         Logout=(Button) findViewById(R.id.logout);
         seeClasses=(Button) findViewById(R.id.seeClasses);
+        SharedPreferences prefs = getSharedPreferences("MyPrefsFile", MODE_PRIVATE);
+        String name = prefs.getString("name", "No type defined");
+        showN=(TextView) findViewById(R.id.showNA);
+
+        showN.setText("Welcome "+name+" to Admin Portal");
 
 //        buffer= new StringBuffer();
 //        mydb = new DbHandler(this);
@@ -64,14 +79,14 @@ public class AdminMain extends AppCompatActivity {
             }
         });
 
-        seeSubjects.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                intent= new Intent(AdminMain.this,AdminSeeSubjects.class);
-                startActivity(intent);
-
-            }
-        });
+//        seeSubjects.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                intent= new Intent(AdminMain.this,AdminSeeSubjects.class);
+//                startActivity(intent);
+//
+//            }
+//        });
 
         seeTeacher.setOnClickListener(new View.OnClickListener() {
             @Override

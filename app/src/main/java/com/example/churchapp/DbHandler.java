@@ -39,9 +39,9 @@ public class DbHandler extends SQLiteOpenHelper {
         insertUSERS("Bhargavi","teacher", "123",db);
         insertUSERS("Anushka","teacher", "123",db);
 
-        insertTeacherClass("Jaskiran","No Class",db);
-        insertTeacherClass("Bhargavi","No Class",db);
-        insertTeacherClass("Anushka","No Class",db);
+        insertStudentClass("Mukesh","No Class",db);
+        insertStudentClass("Yadav","No Class",db);
+        insertStudentClass("Virat","No Class",db);
 
         insertUSERS("Bhavdeep","admin", "123",db);
 
@@ -84,10 +84,10 @@ public class DbHandler extends SQLiteOpenHelper {
         db.insert(" TEACHERCLASS",null,values);
     }
 
-    public void updateTeacherClass(String Tname,String CName, SQLiteDatabase db){
+    public void updateStudentClass(String Sname,String CName, SQLiteDatabase db){
         ContentValues values= new ContentValues();
         values.put("CNAME", CName);
-        db.update(" TEACHERCLASS",values, "TNAME='"+Tname+"'",null);
+        db.update(" STUDENTCLASS",values, "SNAME='"+Sname+"'",null);
     }
 
     public void insertCLASSES(String CName,String Time, SQLiteDatabase db){

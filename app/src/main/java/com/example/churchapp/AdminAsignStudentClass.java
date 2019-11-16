@@ -53,7 +53,7 @@ public class AdminAsignStudentClass extends AppCompatActivity {
         fetchClasses();
 //        fetchAvailableClasses();
 
-
+        arraySpinner.add("No Class");
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, arraySpinner);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -76,7 +76,7 @@ public class AdminAsignStudentClass extends AppCompatActivity {
                 try {
                    int check= checkClassStudent();
                    if(check!=1){
-                       mydb.insertStudentClass(StudentName, selecClass, db);
+                       mydb.updateStudentClass(StudentName, selecClass, db);
 //                       String showNameString="Student is currently assign to :"+selecClass;
 //                       showClass.setText(showNameString);
                        showTeacherClass();
@@ -92,27 +92,27 @@ public class AdminAsignStudentClass extends AppCompatActivity {
             }
         });
 
-        unassignButton =(Button) findViewById(R.id.unassignclassStudent);
-        unassignButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    int check= checkClassStudent();
-                    if(check==1){
-                        db.execSQL(" DELETE FROM STUDENTCLASS WHERE SNAME='"+StudentName+"' AND CNAME ='"+selecClass+"'");
-                        Toast.makeText(getApplicationContext(),selecClass +" Un assigned Successfuly",Toast.LENGTH_SHORT).show();
-                        showTeacherClass();
-                    }
-                    else{
-                        Toast.makeText(getApplicationContext(),"Class is already not assign",Toast.LENGTH_SHORT).show();
-                    }
-
-                }
-                catch (Exception e){
-                    Toast.makeText(getApplicationContext(),"Enter Valid Credentials",Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+//        unassignButton =(Button) findViewById(R.id.unassignclassStudent);
+//        unassignButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                try {
+//                    int check= checkClassStudent();
+//                    if(check==1){
+//                        db.execSQL(" DELETE FROM STUDENTCLASS WHERE SNAME='"+StudentName+"' AND CNAME ='"+selecClass+"'");
+//                        Toast.makeText(getApplicationContext(),selecClass +" Un assigned Successfuly",Toast.LENGTH_SHORT).show();
+//                        showTeacherClass();
+//                    }
+//                    else{
+//                        Toast.makeText(getApplicationContext(),"Class is already not assign",Toast.LENGTH_SHORT).show();
+//                    }
+//
+//                }
+//                catch (Exception e){
+//                    Toast.makeText(getApplicationContext(),"Enter Valid Credentials",Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
     }
     private int checkClassStudent(){
         try {

@@ -35,10 +35,14 @@ public class AddStudentActivity extends AppCompatActivity {
                 try{
                     String user=studentName.getText().toString();
                     String pass=passwordStudent.getText().toString();
-                    mydb.insertUSERS(user,"student",pass,db);
-                    mydb.insertStudentClass(user,"No Class",db);
+//                    mydb.insertUSERS(user,"student",pass,db);
+//                    mydb.insertStudentClass(user,"No Class",db);
+                    Intent intent= new Intent(AddStudentActivity.this,AdminAsignStudentClass.class);
+                    intent.putExtra("Student_Name1", user);
+                    intent.putExtra("password", pass);
+                    intent.putExtra("isfromCreateLogin", true);
+                    startActivity(intent);
                     finish();
-                    Toast.makeText(getApplicationContext(),"Student Added",Toast.LENGTH_SHORT).show();
 
                 }
                 catch(Exception e){

@@ -26,18 +26,30 @@ public class AdminAsignStudentClass extends AppCompatActivity {
     SQLiteDatabase db ;
     Intent intent;
     Button assignButton , unassignButton;
-    String StudentName;
+    String StudentName,user,  password;
     List<String> arraySpinner;
     List<String> arrayClasses;
     String selecClass;
     LinearLayout linearLayout;
+    Boolean checkStudent=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_asign_student_class);
         StudentName = getIntent().getStringExtra("Student_Name");
+        user = getIntent().getStringExtra("Student_Name1");
+    checkStudent=getIntent().getBooleanExtra("isfromCreateLogin",false);
+//        checkStudent = getIntent().getBooleanExtra("isfromCreateLogin");
+        password = getIntent().getStringExtra("password");
+        Toast.makeText(getApplicationContext(),user+" : "+ password,Toast.LENGTH_SHORT).show();
+
+
+
+
         showname=(TextView) findViewById(R.id.showStudentName);
         showClass=(TextView) findViewById(R.id.showStudentClass);
+
+
         String showNameString="Assign Class to "+StudentName;
         showname.setText(showNameString);
         linearLayout= (LinearLayout) findViewById(R.id.linearAddClass);
@@ -76,10 +88,21 @@ public class AdminAsignStudentClass extends AppCompatActivity {
                 try {
                    int check= checkClassStudent();
                    if(check!=1){
-                       mydb.updateStudentClass(StudentName, selecClass, db);
+                       if(checkStudent==true){
+                           mydb.insertUSERS(user,"student",password,db);
+                       mydb.insertStudentClass(user,"No Class",db);
+                           checkStudent=false;
+                           StudentName=user;
+                           mydb.updateStudentClass(user, selecClass, db);
+                           showTeacherClass2();
+                       Toast.makeText(getApplicationContext(),"Student Added",Toast.LENGTH_SHORT).show();
+                       }
+                       else{
+                           mydb.updateStudentClass(StudentName, selecClass, db);
 //                       String showNameString="Student is currently assign to :"+selecClass;
 //                       showClass.setText(showNameString);
-                       showTeacherClass();
+                           showTeacherClass();
+                       }
                    }
                    else{
                        Toast.makeText(getApplicationContext(),"Already enroll in this class",Toast.LENGTH_SHORT).show();
@@ -87,7 +110,8 @@ public class AdminAsignStudentClass extends AppCompatActivity {
 
                 }
                 catch (Exception e){
-                    Toast.makeText(getApplicationContext(),"Enter Valid Credentials",Toast.LENGTH_SHORT).show();
+                    System.out.println("Error is: "+e);
+//                    Toast.makeText(getApplicationContext(),"Enter Valid Credentials Bro",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -149,6 +173,30 @@ public class AdminAsignStudentClass extends AppCompatActivity {
             if(((LinearLayout) linearLayout).getChildCount() > 0)
                 ((LinearLayout) linearLayout).removeAllViews();
             Cursor cursor = db.rawQuery("SELECT SNAME ,CNAME FROM StudentCLASS WHERE SNAME='"+StudentName+"'", null);
+            if(cursor!=null) {
+                cursor.moveToFirst();
+                do {
+                    String cname=cursor.getString(1);
+                    String showNameString="Student is currently assign to :";
+                    showClass.setText(showNameString);
+                    addStudentClass(cname);
+//                    Toast.makeText(getApplicationContext(),cname,Toast.LENGTH_SHORT).show();
+
+                } while (cursor.moveToNext());
+            }
+            else{
+                Toast.makeText(getApplicationContext(),"No Student avialable in database",Toast.LENGTH_SHORT).show();
+            }
+        }
+        catch(Exception e){
+//            Toast.makeText(getApplicationContext(),"Enter Valid Credentials",Toast.LENGTH_SHORT).show();
+        }
+    }
+    private void showTeacherClass2(){
+        try{
+            if(((LinearLayout) linearLayout).getChildCount() > 0)
+                ((LinearLayout) linearLayout).removeAllViews();
+            Cursor cursor = db.rawQuery("SELECT SNAME ,CNAME FROM StudentCLASS WHERE SNAME='"+user+"'", null);
             if(cursor!=null) {
                 cursor.moveToFirst();
                 do {

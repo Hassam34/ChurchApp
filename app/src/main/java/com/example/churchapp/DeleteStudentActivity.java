@@ -42,6 +42,8 @@ public class DeleteStudentActivity extends AppCompatActivity {
                     for (int i=0;i<list.size();i++)
                     {
                         db.execSQL(" DELETE FROM CUSERS WHERE NAME='"+list.get(i)+"'");
+                        db.execSQL(" DELETE FROM STUDENTCLASS WHERE SNAME='"+list.get(i)+"'");
+
                     }
 
                     finish();

@@ -11,7 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".StudentSeeAttendenceStatus"></activity>
+        <activity android:name=".AdminNotification"></activity>
+        <activity android:name=".StudentSeeAttendenceStatus" />
         <activity android:name=".StudentSeeDateWiseAttendence" />
         <activity android:name=".StudentSeeHisClass" />
         <activity android:name=".TeacherTakeAttendenceStudent" />
@@ -35,15 +36,14 @@
         <activity android:name=".StudentMain" />
         <activity android:name=".AdminMain" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".SplashJava"
+        <activity
+            android:name=".SplashJava"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-
             </intent-filter>
-
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>

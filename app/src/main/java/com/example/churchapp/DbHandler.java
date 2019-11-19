@@ -20,6 +20,7 @@ public class DbHandler extends SQLiteOpenHelper {
         String SQL_TEACHER_CLASSES="CREATE TABLE TEACHERCLASS (ID INTEGER PRIMARY KEY AUTOINCREMENT,TNAME TEXT, CNAME TEXT)";
         String SQL_STUDENT_CLASSES="CREATE TABLE STUDENTCLASS (ID INTEGER PRIMARY KEY AUTOINCREMENT,SNAME TEXT, CNAME TEXT)";
         String ATTENDENCE="CREATE TABLE STUDENTATTENDENCE (ID INTEGER PRIMARY KEY AUTOINCREMENT, SNAME TEXT, TNAME TEXT, CNAME TEXT,DATE TEXT,STATUS TEXT,COMMENTS TEXT)";
+        String ADMINNOTIFICATION="CREATE TABLE ADMINNOTIFICATION (ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,COMMENT TEXT,DATE TEXT)";
 
 
         db.execSQL(SQL_CREATE_USERS);
@@ -28,20 +29,21 @@ public class DbHandler extends SQLiteOpenHelper {
         db.execSQL(SQL_TEACHER_CLASSES);
         db.execSQL(SQL_STUDENT_CLASSES);
         db.execSQL(ATTENDENCE);
+        db.execSQL(ADMINNOTIFICATION);
 
 
-        insertUSERS("Mukesh","student", "123",db);
-        insertUSERS("Yadav","student", "123",db);
-        insertUSERS("Virat","student", "123",db);
+//        insertUSERS("Mukesh","student", "123",db);
+//        insertUSERS("Yadav","student", "123",db);
+//        insertUSERS("Virat","student", "123",db);
 
 
         insertUSERS("Jaskiran","teacher", "123",db);
         insertUSERS("Bhargavi","teacher", "123",db);
         insertUSERS("Anushka","teacher", "123",db);
 
-        insertStudentClass("Mukesh","No Class",db);
-        insertStudentClass("Yadav","No Class",db);
-        insertStudentClass("Virat","No Class",db);
+//        insertStudentClass("Mukesh","No Class",db);
+//        insertStudentClass("Yadav","No Class",db);
+//        insertStudentClass("Virat","No Class",db);
 
         insertUSERS("Bhavdeep","admin", "123",db);
 
@@ -52,6 +54,8 @@ public class DbHandler extends SQLiteOpenHelper {
         insertSUBJECTS("English","E-101",db);
         insertSUBJECTS("History","E-102",db);
         insertSUBJECTS("Economics","E-103",db);
+
+
 
     }
 
@@ -70,6 +74,13 @@ public class DbHandler extends SQLiteOpenHelper {
         values.put("STATUS", Status);
         values.put("COMMENTS", Comments);
         db.insert("STUDENTATTENDENCE ",null,values);
+    }
+    public void insertAdminNotification(String Sname,String Comment,String Date, SQLiteDatabase db){
+        ContentValues values= new ContentValues();
+        values.put("NAME", Sname);
+        values.put("COMMENT", Comment);
+        values.put("DATE", Date);
+        db.insert(" ADMINNOTIFICATION",null,values);
     }
     public void insertStudentClass(String Sname,String CName, SQLiteDatabase db){
         ContentValues values= new ContentValues();

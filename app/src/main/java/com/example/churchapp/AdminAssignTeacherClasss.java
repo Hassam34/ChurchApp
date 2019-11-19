@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdminAssignTeacherClasss extends AppCompatActivity {
-    Spinner spinner;
+    Spinner spinner,classAssignName;
     TextView showname, showClass, showTeacherC;
     String Querry;
     DbHandler mydb;
@@ -29,11 +29,13 @@ public class AdminAssignTeacherClasss extends AppCompatActivity {
     String teacherName;
     List<String> arraySpinner;
     List<String> arrayClasses;
+    List<String> arrayTC;
     LinearLayout linearLayout;
+
 //    List<String> arrayTeacherClasses;
 
 
-    String selecClass;
+    String selecClass, selecClass2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,11 +56,16 @@ public class AdminAssignTeacherClasss extends AppCompatActivity {
         db = mydb.getReadableDatabase();
 
         spinner=(Spinner) findViewById(R.id.spinnerid);
+        classAssignName=(Spinner) findViewById(R.id.spinnerid2);
+
         arraySpinner = new ArrayList<String>();
         arrayClasses = new ArrayList<String>();
+        arrayTC = new ArrayList<String>();
+
         showTeacherClass();
         fetchClasses();
         fetchAvailableClasses();
+        fetchTeacherClasses();
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, arraySpinner);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -103,14 +110,29 @@ public class AdminAssignTeacherClasss extends AppCompatActivity {
             }
         });
 
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, arrayTC);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        classAssignName.setAdapter(adapter2);
+        classAssignName.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                selecClass2 = parent.getItemAtPosition(position).toString();
+
+            }
+            @Override
+            public void onNothingSelected(AdapterView <?> parent) {
+            }
+        });
+
         unassignButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
-                    db.execSQL(" DELETE FROM TEACHERCLASS WHERE TNAME='"+teacherName+"'");
-                    Toast.makeText(getApplicationContext(),"All Class are Unassign to "+ teacherName,Toast.LENGTH_SHORT).show();
-                    finish();
-
+                    if(!arrayTC.equals("null")) {
+                        db.execSQL(" DELETE FROM TEACHERCLASS WHERE CNAME='" + selecClass2 + "'");
+                        finish();
+                    }
 
                 }
                 catch (Exception e){
@@ -181,6 +203,7 @@ public class AdminAssignTeacherClasss extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         arraySpinner.add("");
+        arrayTC.add("");
         for (int i=0;i<arrayClasses.size();i++)
         {
 //            Toast.makeText(getApplicationContext(),arrayClasses.get(i),Toast.LENGTH_SHORT).show();
@@ -216,6 +239,26 @@ public class AdminAssignTeacherClasss extends AppCompatActivity {
                 cursor.moveToFirst();
                 do {
                     arrayClasses.add(cursor.getString(0));
+//                    addClass(tname);
+//                    buffer.append("name = " + tname);
+                } while (cursor.moveToNext());
+//                Toast.makeText(getApplicationContext(),buffer,Toast.LENGTH_SHORT).show();
+            }
+            else{
+//                Toast.makeText(getApplicationContext(),"No Teacher avialable in database",Toast.LENGTH_SHORT).show();
+            }
+        }
+        catch(Exception e){
+//            Toast.makeText(getApplicationContext(),e.toString(),Toast.LENGTH_LONG).show();
+        }
+    }
+    private void fetchTeacherClasses(){
+        try{
+            Cursor cursor = db.rawQuery("SELECT CNAME FROM TEACHERCLASS WHERE TNAME='"+teacherName+"'", null);
+            if(cursor!=null) {
+                cursor.moveToFirst();
+                do {
+                    arrayTC.add(cursor.getString(0));
 //                    addClass(tname);
 //                    buffer.append("name = " + tname);
                 } while (cursor.moveToNext());

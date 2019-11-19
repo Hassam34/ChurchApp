@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +21,7 @@ public class AdminMain extends AppCompatActivity {
 //    StringBuffer buffer;
     Intent intent;
     TextView showN;
+    ImageButton addNoti;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +46,14 @@ public class AdminMain extends AppCompatActivity {
         showN=(TextView) findViewById(R.id.showNA);
 
         showN.setText("Welcome "+name+" to Admin Portal");
+        addNoti=(ImageButton) findViewById(R.id.addnitification);
+        addNoti.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(AdminMain.this, AdminNotification.class);
+                startActivity(intent);
+            }
+        });
 
 //        buffer= new StringBuffer();
 //        mydb = new DbHandler(this);

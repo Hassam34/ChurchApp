@@ -68,6 +68,8 @@
         android:foregroundGravity="bottom"
         android:scaleType="fitXY"
         android:src="@drawable/plus"
+        android:padding="15dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView3"

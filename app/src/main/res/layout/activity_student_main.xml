@@ -54,20 +54,21 @@
     <ImageButton
         android:id="@+id/seenotiStudent"
         android:layout_width="60dp"
-        android:layout_height="0dp"
+        android:layout_height="60dp"
         android:layout_gravity="bottom"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/roundedbutton"
         android:foregroundGravity="bottom"
-        android:padding="15dp"
+        android:padding="10dp"
         android:scaleType="fitXY"
-        android:src="@drawable/plus"
+        android:src="@drawable/eye"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        tools:src="@drawable/plus" />
+        app:layout_constraintVertical_bias="0.957"
+        tools:src="@drawable/eye" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

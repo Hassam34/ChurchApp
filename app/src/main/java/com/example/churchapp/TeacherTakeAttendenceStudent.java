@@ -19,7 +19,7 @@ import java.util.Date;
 
 public class TeacherTakeAttendenceStudent extends AppCompatActivity {
     String studentName;
-    TextView showAttendenceText,showComments;
+    TextView showAttendenceText,showComments,date;
     String className;
     String Querry;
     DbHandler mydb;
@@ -45,6 +45,7 @@ public class TeacherTakeAttendenceStudent extends AppCompatActivity {
         confirm=(Button)findViewById(R.id.confirm);
         behaviour=(EditText) findViewById(R.id.behaviours);
         showAttendenceText=(TextView) findViewById(R.id.showAttendenceText);
+        date=(TextView) findViewById(R.id.date);
         showComments=(TextView) findViewById(R.id.showComments);
         buffer= new StringBuffer();
         mydb = new DbHandler(this);
@@ -54,19 +55,21 @@ public class TeacherTakeAttendenceStudent extends AppCompatActivity {
         SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
         formattedDate = df.format(c);
 
+        date.setText(formattedDate);
+
         checkAttendence();
         absent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 present.setVisibility(View.GONE);
-                Status="absent";
+                Status="Not Taken";
             }
         });
         present.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 absent.setVisibility(View.GONE);
-                Status="present";
+                Status="Taken";
             }
         });
         confirm.setOnClickListener(new View.OnClickListener() {

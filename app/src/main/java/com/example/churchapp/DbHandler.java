@@ -21,6 +21,7 @@ public class DbHandler extends SQLiteOpenHelper {
         String SQL_STUDENT_CLASSES="CREATE TABLE STUDENTCLASS (ID INTEGER PRIMARY KEY AUTOINCREMENT,SNAME TEXT, CNAME TEXT)";
         String ATTENDENCE="CREATE TABLE STUDENTATTENDENCE (ID INTEGER PRIMARY KEY AUTOINCREMENT, SNAME TEXT, TNAME TEXT, CNAME TEXT,DATE TEXT,STATUS TEXT,COMMENTS TEXT)";
         String ADMINNOTIFICATION="CREATE TABLE ADMINNOTIFICATION (ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,COMMENT TEXT,DATE TEXT)";
+        String TEACHERNOTIFICATION="CREATE TABLE TEACHEROTIFICATION (ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,COMMENT TEXT,CNAME TEXT,DATE TEXT)";
 
 
         db.execSQL(SQL_CREATE_USERS);
@@ -30,6 +31,7 @@ public class DbHandler extends SQLiteOpenHelper {
         db.execSQL(SQL_STUDENT_CLASSES);
         db.execSQL(ATTENDENCE);
         db.execSQL(ADMINNOTIFICATION);
+        db.execSQL(TEACHERNOTIFICATION);
 
 
 //        insertUSERS("Mukesh","student", "123",db);
@@ -79,8 +81,17 @@ public class DbHandler extends SQLiteOpenHelper {
         ContentValues values= new ContentValues();
         values.put("NAME", Sname);
         values.put("COMMENT", Comment);
+
         values.put("DATE", Date);
         db.insert(" ADMINNOTIFICATION",null,values);
+    }
+    public void insertTeacherNotification(String Sname,String Comment,String Cname,String Date, SQLiteDatabase db){
+        ContentValues values= new ContentValues();
+        values.put("NAME", Sname);
+        values.put("COMMENT", Comment);
+        values.put("CNAME", Cname);
+        values.put("DATE", Date);
+        db.insert(" TEACHEROTIFICATION",null,values);
     }
     public void insertStudentClass(String Sname,String CName, SQLiteDatabase db){
         ContentValues values= new ContentValues();

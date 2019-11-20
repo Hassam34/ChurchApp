@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".TeacheraddNoti">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="Broadcast notification to you Class"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:text="Chhose Class"/>
+
+    <Spinner
+        android:id="@+id/spinerSeeClass"
+        style="@android:style/Widget.Holo.Light.Spinner"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="10dp"></Spinner>
+    <EditText
+        android:layout_marginTop="50dp"
+        android:inputType="textMultiLine"
+        android:id="@+id/commentNotiTeacher"
+        android:lines="5"
+        android:minLines="5"
+        android:gravity="top|left"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:maxLines="5"
+        android:hint="write notification"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:scrollbars="vertical"
+        />
+    <Button
+        android:id="@+id/sendNotificationT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:layout_marginBottom="24dp"
+        android:background="@color/colorAccent"
+        android:text="Broadcast"
+        android:textColor="#ffff"
+        />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

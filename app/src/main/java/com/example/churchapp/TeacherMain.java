@@ -7,17 +7,23 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class TeacherMain extends AppCompatActivity {
     Button logout, addAttendence;
     TextView showN;
+    ImageButton seeNotiTeacher,addNotiTeacher;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_main);
         logout=(Button) findViewById(R.id.logoutTeacher);
+
+        seeNotiTeacher=(ImageButton) findViewById(R.id.seeNotiTeacher);
+        addNotiTeacher=(ImageButton) findViewById(R.id.addNotiTeacher) ;
+
 
         SharedPreferences prefs = getSharedPreferences("MyPrefsFile", MODE_PRIVATE);
         String name = prefs.getString("name", "No type defined");
@@ -44,6 +50,22 @@ public class TeacherMain extends AppCompatActivity {
                 Intent intent = new Intent(TeacherMain.this, MainActivity.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+
+        seeNotiTeacher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TeacherMain.this, TeacherSeeNoti.class);
+                startActivity(intent);
+            }
+        });
+
+        addNotiTeacher.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TeacherMain.this, TeacheraddNoti.class);
+                startActivity(intent);
             }
         });
     }

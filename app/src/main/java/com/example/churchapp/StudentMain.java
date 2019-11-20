@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,6 +15,7 @@ public class StudentMain extends AppCompatActivity {
     Button logout, seeAttendence;
     String name;
     TextView showN;
+    ImageButton seenotiStudent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +23,8 @@ public class StudentMain extends AppCompatActivity {
         seeAttendence=(Button) findViewById(R.id.seeAttendence);
         logout=(Button) findViewById(R.id.logoutStudent);
         showN=(TextView) findViewById(R.id.showN);
+        seenotiStudent= (ImageButton) findViewById(R.id.seenotiStudent);
+
 
         SharedPreferences prefs = getSharedPreferences("MyPrefsFile", MODE_PRIVATE);
         name = prefs.getString("name", "No type defined");
@@ -47,6 +51,14 @@ public class StudentMain extends AppCompatActivity {
                 Intent intent = new Intent(StudentMain.this, MainActivity.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+
+        seenotiStudent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(StudentMain.this,StudentSeeNoti.class);
+                startActivity(intent);
             }
         });
     }

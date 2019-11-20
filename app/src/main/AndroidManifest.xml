@@ -11,7 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".TeacheraddNoti"></activity>
+        <activity android:name=".StudentSeeNoti"></activity>
+        <activity android:name=".TeacheraddNoti" />
         <activity android:name=".TeacherSeeNoti" />
         <activity android:name=".AdminNotification" />
         <activity android:name=".StudentSeeAttendenceStatus" />

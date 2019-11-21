@@ -105,7 +105,6 @@ public class AdminAssignTeacherClasss extends AppCompatActivity {
 
                 }
                 catch (Exception e){
-                    Toast.makeText(getApplicationContext(),"Enter Valid Credentials",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -136,7 +135,6 @@ public class AdminAssignTeacherClasss extends AppCompatActivity {
 
                 }
                 catch (Exception e){
-                    Toast.makeText(getApplicationContext(),"Enter Valid Credentials",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -195,7 +193,6 @@ public class AdminAssignTeacherClasss extends AppCompatActivity {
             }
         }
         catch(Exception e){
-//            Toast.makeText(getApplicationContext(),"Enter Valid Credentials",Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -229,7 +226,6 @@ public class AdminAssignTeacherClasss extends AppCompatActivity {
             }
         }
         catch(Exception e){
-//            Toast.makeText(getApplicationContext(),"Enter Valid Credentials",Toast.LENGTH_SHORT).show();
         }
     }
     private void fetchAvailableClasses(){

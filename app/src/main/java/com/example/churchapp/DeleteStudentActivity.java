@@ -51,7 +51,6 @@ public class DeleteStudentActivity extends AppCompatActivity {
                     finish();
                 }
                 catch(Exception e){
-                    Toast.makeText(getApplicationContext(),"Enter Valid Credentials",Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -79,7 +79,7 @@
         android:layout_marginRight="10dp"
         android:layout_height="wrap_content"
         android:textColor="#fff"
-        android:background="@color/colorAccent"
+        android:background="#86c4f0"
         android:text="Confirm"/>
 
 

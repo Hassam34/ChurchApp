@@ -86,7 +86,7 @@ public class TeacherSeeClasses extends AppCompatActivity {
             }
         }
         catch(Exception e){
-            Toast.makeText(getApplicationContext(),"Enter Valid Credentials",Toast.LENGTH_SHORT).show();
+
         }
     }
 }

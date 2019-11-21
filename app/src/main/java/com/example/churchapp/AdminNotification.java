@@ -48,7 +48,6 @@ public class AdminNotification extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"Notification is broadcast",Toast.LENGTH_SHORT).show();
                 }
                 catch(Exception e){
-                    Toast.makeText(getApplicationContext(),"Enter Valid Credentials",Toast.LENGTH_SHORT).show();
                 }
 
             }

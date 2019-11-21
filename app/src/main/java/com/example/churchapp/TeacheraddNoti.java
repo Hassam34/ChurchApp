@@ -77,7 +77,6 @@ public class TeacheraddNoti extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Notification is broadcast to "+selectClass,Toast.LENGTH_SHORT).show();
                 }
                 catch(Exception e){
-                    Toast.makeText(getApplicationContext(),"Enter Valid Credentials",Toast.LENGTH_SHORT).show();
                 }
 
             }

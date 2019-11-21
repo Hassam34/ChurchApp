@@ -51,8 +51,6 @@
             android:layout_marginLeft="30dp"
             android:id="@+id/spinnerEnd"
             android:layout_height="50dp"></Spinner>
-
-
     </LinearLayout>
 
     <Button

@@ -63,7 +63,8 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/roundedbutton"
         android:foregroundGravity="bottom"
-        android:padding="10dp"
+
+        android:padding="12dp"
         android:scaleType="fitXY"
         android:src="@drawable/eye"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -35,9 +35,14 @@
 
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
             android:textSize="8pt"
             android:id="@+id/adminBtn"
+            android:background="#66afe3"
+            android:textColor="@color/white"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Admin" />
@@ -46,7 +51,11 @@
             android:layout_marginTop="10pt"
             android:id="@+id/teacherBtn"
             android:textSize="8pt"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="#66afe3"
+            android:textColor="@color/white"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Teacher" />
@@ -55,7 +64,11 @@
             android:layout_marginTop="10pt"
             android:textSize="8pt"
             android:id="@+id/studentBtn"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="#66afe3"
+            android:textColor="@color/white"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Student" />

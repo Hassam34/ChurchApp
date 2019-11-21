@@ -55,8 +55,8 @@
             android:layout_marginRight="10dp"
             android:id="@+id/assignclass"
             android:text="Assign Class"
-            android:background="@color/colorAccent"
-            android:textColor="#ffff"
+            android:background="#86c4f0"
+            android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <Spinner

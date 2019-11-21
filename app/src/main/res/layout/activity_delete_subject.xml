@@ -26,9 +26,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:background="@color/colorAccent"
         android:text="Delete Subject"
-        android:textColor="#ffff" />
+        android:background="#86c4f0"
+        android:textColor="@color/white" />
 
 
 </androidx.appcompat.widget.LinearLayoutCompat>

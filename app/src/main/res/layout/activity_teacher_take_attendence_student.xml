@@ -36,7 +36,7 @@
             android:layout_marginRight="10dp"
             android:textColor="#fff"
             android:background="@color/colorPrimary"
-            android:text="Taken"
+            android:text="Present"
             android:id="@+id/present"
             />
         <Button
@@ -46,7 +46,7 @@
             android:layout_height="50dp"
             android:textColor="#fff"
             android:background="@color/colorAccent"
-            android:text="Not taken"/>
+            android:text="Absent"/>
 
 
     </LinearLayout>

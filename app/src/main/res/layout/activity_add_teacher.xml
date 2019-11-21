@@ -38,9 +38,9 @@
         android:layout_width="match_parent"
         android:layout_marginTop="30dp"
         android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
+        android:background="#86c4f0"
+        android:textColor="@color/white"
         android:text="Add Teacher"
-        android:textColor="#ffff"
         android:id="@+id/teacherAdd"/>
 
 

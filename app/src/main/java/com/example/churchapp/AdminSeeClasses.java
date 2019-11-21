@@ -1,10 +1,12 @@
 package com.example.churchapp;
 
+import androidx.annotation.ColorRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -63,6 +65,10 @@ public class AdminSeeClasses extends AppCompatActivity {
 
         Dbutton = new Button(this);
         Dbutton.setText(name);
+////        Dbutton.setBackgroundColor(getResources().getColor(R.color.white));
+//        Dbutton.setTextColor(Color.BLUE);
+//        Dbutton.setBackgroundColor(Color.rgb(220, 224, 227));
+
         linearLayout.addView(Dbutton);
 
     }

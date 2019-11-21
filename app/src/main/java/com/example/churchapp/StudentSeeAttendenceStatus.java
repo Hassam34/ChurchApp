@@ -61,11 +61,11 @@ public class StudentSeeAttendenceStatus extends AppCompatActivity {
                 cursor.moveToFirst();
                 do {
                     status.setText(cursor.getString(0));
-                    if(status.getText().toString().equals("absent")){
+                    if(status.getText().toString().equals("Absent")){
                         status.setTextColor(Color.RED);
                     }
                     else{
-                        status.setTextColor(Color.GREEN);
+                        status.setTextColor(Color.rgb(98, 209, 133));
                     }
                     instructor.setText(cursor.getString(1));
                     Class.setText(cursor.getString(2));

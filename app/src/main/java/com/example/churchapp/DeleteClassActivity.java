@@ -41,6 +41,7 @@ public class DeleteClassActivity extends AppCompatActivity {
                     for (int i=0;i<list.size();i++)
                     {
                         db.execSQL(" DELETE FROM CLASSES WHERE CNAME='"+list.get(i)+"'");
+                        db.execSQL(" DELETE FROM CLASSES WHERE CNAME='"+list.get(i)+"'");
                     }
 
                     finish();

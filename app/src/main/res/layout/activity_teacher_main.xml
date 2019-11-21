@@ -38,6 +38,16 @@
             android:layout_marginTop="30dp"
             android:layout_marginRight="30dp"
             android:text="Add Attendence " />
+        <Button
+            android:id="@+id/ShowAtendenceT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:background="#86c4f0"
+            android:textColor="@color/white"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="30dp"
+            android:text="Show Attendence " />
 
 
         <Button

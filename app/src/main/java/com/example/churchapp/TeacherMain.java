@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class TeacherMain extends AppCompatActivity {
-    Button logout, addAttendence;
+    Button logout, addAttendence, showAttendence;
     TextView showN;
     ImageButton seeNotiTeacher,addNotiTeacher;
     @Override
@@ -20,6 +20,7 @@ public class TeacherMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_teacher_main);
         logout=(Button) findViewById(R.id.logoutTeacher);
+        showAttendence=(Button) findViewById(R.id.ShowAtendenceT);
 
         seeNotiTeacher=(ImageButton) findViewById(R.id.seeNotiTeacher);
         addNotiTeacher=(ImageButton) findViewById(R.id.addNotiTeacher) ;
@@ -65,6 +66,14 @@ public class TeacherMain extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(TeacherMain.this, TeacheraddNoti.class);
+                startActivity(intent);
+            }
+        });
+
+        showAttendence.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TeacherMain.this, ShowAttendenceStatus.class);
                 startActivity(intent);
             }
         });

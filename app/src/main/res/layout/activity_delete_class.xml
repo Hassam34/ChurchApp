@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:background="#86c4f0"
+        android:background="@color/colorAccent"
         android:textColor="@color/white"
         android:text="Delete Class"
         />

@@ -117,7 +117,7 @@ public class TeacherTakeAttendenceStudent extends AppCompatActivity {
         try{
 
             mydb.isertAttendence(studentName,Teachername,className,formattedDate,Status,behaviour.getText().toString(),db);
-            Toast.makeText(this, "Attendence has been added", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Attendence has been taken", Toast.LENGTH_SHORT).show();
         }
         catch(Exception e){
             Toast.makeText(this, "no", Toast.LENGTH_SHORT).show();

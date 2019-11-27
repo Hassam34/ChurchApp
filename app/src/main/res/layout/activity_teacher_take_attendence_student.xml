@@ -63,8 +63,12 @@
     <EditText
         android:inputType="textMultiLine"
         android:id="@+id/behaviours"
-        android:lines="8"
-        android:minLines="3"
+        android:layout_marginTop="50dp"
+        android:lines="5"
+        android:minLines="5"
+        android:gravity="top|left"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:maxLines="5"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
@@ -79,7 +83,7 @@
         android:layout_marginRight="10dp"
         android:layout_height="wrap_content"
         android:textColor="#fff"
-        android:background="#86c4f0"
+        android:background="#1f70ad"
         android:text="Confirm"/>
 
 

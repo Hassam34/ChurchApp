@@ -16,9 +16,10 @@
         android:text="Broadcast Your Notification"/>
 
     <EditText
+
+        android:id="@+id/commentNoti"
         android:layout_marginTop="50dp"
         android:inputType="textMultiLine"
-        android:id="@+id/commentNoti"
         android:lines="5"
         android:minLines="5"
         android:gravity="top|left"
@@ -36,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
         android:layout_marginBottom="24dp"
-        android:background="#86c4f0"
+        android:background="#1f70ad"
         android:textColor="@color/white"
         android:text="Broadcast"
 
